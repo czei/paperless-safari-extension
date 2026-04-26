@@ -1,0 +1,176 @@
+name: PaperlessClipper
+options:
+  bundleIdPrefix: org.czei
+  deploymentTarget:
+    macOS: "11.0"
+    iOS: "15.0"
+  developmentLanguage: en
+  createIntermediateGroups: true
+  groupSortPosition: top
+  generateEmptyDirectories: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    PRODUCT_BUNDLE_IDENTIFIER: org.czei.PaperlessClipper
+    DEVELOPMENT_TEAM: "266QZGP4BG"
+    CODE_SIGN_STYLE: Automatic
+    SWIFT_TREAT_WARNINGS_AS_ERRORS: NO
+    GCC_TREAT_WARNINGS_AS_ERRORS: NO
+    VALIDATE_WORKSPACE: NO
+
+targets:
+  # --------------------------------------------------------------------------
+  # macOS containing app
+  # --------------------------------------------------------------------------
+  PaperlessClipper-macOS:
+    type: application
+    platform: macOS
+    deploymentTarget: "11.0"
+    sources:
+      - path: apps/macOS
+      - path: shared-swift
+    info:
+      path: apps/macOS/Info.plist
+      properties:
+        CFBundleDisplayName: Paperless Clipper
+        LSApplicationCategoryType: public.app-category.productivity
+        LSMinimumSystemVersion: "11.0"
+        NSPrincipalClass: NSApplication
+        CFBundleURLTypes:
+          - CFBundleURLName: org.czei.PaperlessClipper.render
+            CFBundleURLSchemes: [paperless-clipper]
+    settings:
+      base:
+        PRODUCT_NAME: PaperlessClipper
+        PRODUCT_BUNDLE_IDENTIFIER: org.czei.PaperlessClipper
+        INFOPLIST_FILE: apps/macOS/Info.plist
+        CODE_SIGN_ENTITLEMENTS: apps/macOS/PaperlessClipper.entitlements
+        ENABLE_APP_SANDBOX: YES
+    dependencies:
+      - target: PaperlessClipperExtension-macOS
+        embed: true
+
+  # --------------------------------------------------------------------------
+  # iOS containing app
+  # --------------------------------------------------------------------------
+  PaperlessClipper-iOS:
+    type: application
+    platform: iOS
+    deploymentTarget: "15.0"
+    supportedDestinations: [iOS, iOSSimulator]
+    sources:
+      - path: apps/iOS
+      - path: shared-swift
+    info:
+      path: apps/iOS/Info.plist
+      properties:
+        CFBundleDisplayName: Paperless Clipper
+        LSRequiresIPhoneOS: true
+        UIBackgroundModes: [fetch]
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        CFBundleURLTypes:
+          - CFBundleURLName: org.czei.PaperlessClipper.render
+            CFBundleURLSchemes: [paperless-clipper]
+    settings:
+      base:
+        PRODUCT_NAME: PaperlessClipper
+        PRODUCT_BUNDLE_IDENTIFIER: org.czei.PaperlessClipper.iOS
+        INFOPLIST_FILE: apps/iOS/Info.plist
+        CODE_SIGN_ENTITLEMENTS: apps/iOS/PaperlessClipper.entitlements
+        TARGETED_DEVICE_FAMILY: "1,2"
+    dependencies:
+      - target: PaperlessClipperExtension-iOS
+        embed: true
+
+  # --------------------------------------------------------------------------
+  # macOS Safari Web Extension
+  # --------------------------------------------------------------------------
+  PaperlessClipperExtension-macOS:
+    type: app-extension
+    platform: macOS
+    deploymentTarget: "11.0"
+    sources:
+      - path: extension/SafariWebExtensionHandler.swift
+      - path: shared-swift
+      # Pull rendering + upload INTO the extension on macOS so we avoid the
+      # cross-app data boundary that macOS 15+ "App Containers" enforces.
+      - path: apps/macOS/PDFRenderer.swift
+      - path: apps/macOS/PaperlessClient.swift
+      - path: extension/Resources
+        buildPhase: resources
+    info:
+      path: extension/Info.plist
+      properties:
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.Safari.web-extension
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).SafariWebExtensionHandler
+    settings:
+      base:
+        PRODUCT_NAME: PaperlessClipperExtension
+        PRODUCT_BUNDLE_IDENTIFIER: org.czei.PaperlessClipper.Extension
+        INFOPLIST_FILE: extension/Info.plist
+        CODE_SIGN_ENTITLEMENTS: extension/PaperlessClipperExtension.entitlements
+        ENABLE_APP_SANDBOX: YES
+    preBuildScripts:
+      - name: Build Web Extension JS
+        script: ${SRCROOT}/scripts/build-web.sh
+        inputFiles:
+          - ${SRCROOT}/web/src/manifest.json
+          - ${SRCROOT}/web/package.json
+          - ${SRCROOT}/web/tsconfig.json
+          - ${SRCROOT}/web/vite.config.ts
+        outputFiles:
+          - ${SRCROOT}/extension/Resources/manifest.json
+          - ${SRCROOT}/extension/Resources/background.js
+          - ${SRCROOT}/extension/Resources/content.js
+          - ${SRCROOT}/extension/Resources/popup.js
+          - ${SRCROOT}/extension/Resources/settings.js
+        basedOnDependencyAnalysis: false
+
+  # --------------------------------------------------------------------------
+  # iOS Safari Web Extension
+  # --------------------------------------------------------------------------
+  PaperlessClipperExtension-iOS:
+    type: app-extension
+    platform: iOS
+    deploymentTarget: "15.0"
+    supportedDestinations: [iOS, iOSSimulator]
+    sources:
+      - path: extension/SafariWebExtensionHandler.swift
+      - path: shared-swift
+      - path: extension/Resources
+        buildPhase: resources
+    info:
+      path: extension/Info.plist
+      properties:
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.Safari.web-extension
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).SafariWebExtensionHandler
+    settings:
+      base:
+        PRODUCT_NAME: PaperlessClipperExtension
+        PRODUCT_BUNDLE_IDENTIFIER: org.czei.PaperlessClipper.iOS.Extension
+        INFOPLIST_FILE: extension/Info.plist
+        CODE_SIGN_ENTITLEMENTS: extension/PaperlessClipperExtension.entitlements
+    preBuildScripts:
+      - name: Build Web Extension JS
+        script: ${SRCROOT}/scripts/build-web.sh
+        inputFiles:
+          - ${SRCROOT}/web/src/manifest.json
+          - ${SRCROOT}/web/package.json
+          - ${SRCROOT}/web/tsconfig.json
+          - ${SRCROOT}/web/vite.config.ts
+        outputFiles:
+          - ${SRCROOT}/extension/Resources/manifest.json
+          - ${SRCROOT}/extension/Resources/background.js
+          - ${SRCROOT}/extension/Resources/content.js
+          - ${SRCROOT}/extension/Resources/popup.js
+          - ${SRCROOT}/extension/Resources/settings.js
+        basedOnDependencyAnalysis: false

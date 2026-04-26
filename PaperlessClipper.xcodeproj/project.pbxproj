@@ -1,0 +1,897 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07A227A7A655AFD8936ADC1C /* JobRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CA0BC1F8047C3D807F82E /* JobRecord.swift */; };
+		0B53A104812480DA2AE2A527 /* settings.js.map in Resources */ = {isa = PBXBuildFile; fileRef = 910D80545B0BD5E1FE7CFBCA /* settings.js.map */; };
+		0C270FB86A08FCA4A7A48C21 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EA92254EB4B6E940DCCB8D /* KeychainStore.swift */; };
+		11DB63C3B294B774DA4ECAD8 /* background.js.map in Resources */ = {isa = PBXBuildFile; fileRef = 5283F637A210316C4889B008 /* background.js.map */; };
+		11DBFEDDC95D2F0259AD1700 /* settings.js in Resources */ = {isa = PBXBuildFile; fileRef = 382FFF5D0CF06417C11D5BC4 /* settings.js */; };
+		1C31B731F19DEEFDA34DFD75 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = CE5320D81C36F19DBB2EF4B4 /* background.js */; };
+		1FE21F20E092590C9CD53DF3 /* PaperlessClipperExtension-iOS.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E6C853078A5AC244E6C2E65B /* PaperlessClipperExtension-iOS.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		23AFBEC4790E2382AB989AC4 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ECAB155BFD062EB3AB722A /* Models.swift */; };
+		2674F661EE645A19D1A537AD /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = C76625DB738B092C8468AF62 /* content.js */; };
+		2725314F8F9B0300E3C47F4A /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EA92254EB4B6E940DCCB8D /* KeychainStore.swift */; };
+		29A03CFF1EC51536C37CCBF7 /* popup.js.map in Resources */ = {isa = PBXBuildFile; fileRef = FFEBC61D231B174F4576A866 /* popup.js.map */; };
+		2C54939BFEB15DAA73BFAC3E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ECAB155BFD062EB3AB722A /* Models.swift */; };
+		326D4B6EF3FD3B5C1B5DEDCE /* content.js.map in Resources */ = {isa = PBXBuildFile; fileRef = DDAAEE9F10F15FC11BF973FD /* content.js.map */; };
+		3A49F113C9C7076D69928A1B /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B1CE4B01DA862D8381E3D /* AppGroup.swift */; };
+		3ACBCF0C4B57EDE9CABB3197 /* settings.js in Resources */ = {isa = PBXBuildFile; fileRef = 382FFF5D0CF06417C11D5BC4 /* settings.js */; };
+		3F5CA55450B5EC1E5CDE196A /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 73A7B44E0B862A0BCAA32BF5 /* popup.html */; };
+		4599D9FC31A5105D42239D37 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CCA0A5EA90318ADD5C8C792 /* manifest.json */; };
+		4876A0D0712ADC565934664D /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B1CE4B01DA862D8381E3D /* AppGroup.swift */; };
+		48B8BF91978C6E632D694754 /* JobRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CA0BC1F8047C3D807F82E /* JobRecord.swift */; };
+		4AAB108A33CADC3F446332CE /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = CE5320D81C36F19DBB2EF4B4 /* background.js */; };
+		4BD21389A77A2B0EAE0F316A /* modulepreload-polyfill.js.map in Resources */ = {isa = PBXBuildFile; fileRef = 6FC518684ED1C295D321E0BA /* modulepreload-polyfill.js.map */; };
+		4CED5F0BEF361CC51FA23AA8 /* PDFRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A9A89F622E1CB2BE9C8521 /* PDFRenderer.swift */; };
+		4E5F12FD74D1598603ED7651 /* URLSchemeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD668293BD5C01585225CAC /* URLSchemeHandler.swift */; };
+		4F521D0E1BFFDC9954C68120 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703845DF187BDDB9260DD874 /* SafariWebExtensionHandler.swift */; };
+		51C48A28DE5AF84B4EFD8CC7 /* JobRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CA0BC1F8047C3D807F82E /* JobRecord.swift */; };
+		54C57A628C83F39D92CCBF4B /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ECAB155BFD062EB3AB722A /* Models.swift */; };
+		55D5A30E3913F2E3D87875B3 /* settings.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A46C61E026949DF2D3FB709 /* settings.html */; };
+		5C90E69983B17BAF7B2A4F5C /* PaperlessClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A82603E6A766AFEA3057BF /* PaperlessClient.swift */; };
+		5D0DC4E1E839391405812A5F /* PaperlessClientConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBA7A7E56D52337577303D2 /* PaperlessClientConfig.swift */; };
+		65C836835A28E4D9FCCFB5C7 /* popup.js.map in Resources */ = {isa = PBXBuildFile; fileRef = FFEBC61D231B174F4576A866 /* popup.js.map */; };
+		6D4A7883190B93C64B3CCA6E /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B1CE4B01DA862D8381E3D /* AppGroup.swift */; };
+		741DE0E9AB6A84B8DD3E836E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ECAB155BFD062EB3AB722A /* Models.swift */; };
+		74CC9E3E0D866348B6DECE18 /* background.js.map in Resources */ = {isa = PBXBuildFile; fileRef = 5283F637A210316C4889B008 /* background.js.map */; };
+		7530AC001C49BC2F66BB81AF /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CCA0A5EA90318ADD5C8C792 /* manifest.json */; };
+		768DAB273D5D92109EE7DCFF /* PaperlessClientConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBA7A7E56D52337577303D2 /* PaperlessClientConfig.swift */; };
+		795F8B5F309BE5F68539E016 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = C76625DB738B092C8468AF62 /* content.js */; };
+		806FA12A52F5121BCCBB14C6 /* PaperlessClientConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBA7A7E56D52337577303D2 /* PaperlessClientConfig.swift */; };
+		927D97856191C69C9807F289 /* PaperlessClipperExtension-macOS.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 48403931733D2C5ECFD477A2 /* PaperlessClipperExtension-macOS.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9A4881E9329C4CF594B39E5C /* PaperlessClipperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4A1534349B8A6C60410F0 /* PaperlessClipperApp.swift */; };
+		A5238D172A276405E4F010D4 /* modulepreload-polyfill.js.map in Resources */ = {isa = PBXBuildFile; fileRef = 6FC518684ED1C295D321E0BA /* modulepreload-polyfill.js.map */; };
+		A923A66F09193FBDD6DF0007 /* JobRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CA0BC1F8047C3D807F82E /* JobRecord.swift */; };
+		AFD24FB1B5FACE9DAEDF2CB2 /* content.js.map in Resources */ = {isa = PBXBuildFile; fileRef = DDAAEE9F10F15FC11BF973FD /* content.js.map */; };
+		B544ADF7CB7CEB304E233B60 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 73A7B44E0B862A0BCAA32BF5 /* popup.html */; };
+		BA608006583F554ABE073C60 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B1CE4B01DA862D8381E3D /* AppGroup.swift */; };
+		BC46066746554AB399448F7A /* modulepreload-polyfill.js in Resources */ = {isa = PBXBuildFile; fileRef = 51E2BA15F9493E4FF58D16D7 /* modulepreload-polyfill.js */; };
+		C162E77E4F12F5984E8BF96B /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 297C51350E4F453D06D02C1D /* popup.js */; };
+		C519EB92FCA140F58F671D7C /* modulepreload-polyfill.js in Resources */ = {isa = PBXBuildFile; fileRef = 51E2BA15F9493E4FF58D16D7 /* modulepreload-polyfill.js */; };
+		C79BB1CAE6C39CBBC7057EE9 /* settings.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A46C61E026949DF2D3FB709 /* settings.html */; };
+		D7EB042313F8CBA17F4C98BE /* PDFRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A9A89F622E1CB2BE9C8521 /* PDFRenderer.swift */; };
+		DB206D77C83D2F90CF0DE103 /* PaperlessClipperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B43E1E086C13978AAAF684 /* PaperlessClipperApp.swift */; };
+		E00DC5FC85A996DC48FDF1A4 /* settings.js.map in Resources */ = {isa = PBXBuildFile; fileRef = 910D80545B0BD5E1FE7CFBCA /* settings.js.map */; };
+		E4D36848DCB586FEB2D614C7 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EA92254EB4B6E940DCCB8D /* KeychainStore.swift */; };
+		E6B7D4174C9F64A5497F56F9 /* PaperlessClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A82603E6A766AFEA3057BF /* PaperlessClient.swift */; };
+		EB30CC0A573433F446084B62 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703845DF187BDDB9260DD874 /* SafariWebExtensionHandler.swift */; };
+		EEC50B00ABD1D00DD77E512E /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 297C51350E4F453D06D02C1D /* popup.js */; };
+		F63691D6FBD5B88E51D28BD3 /* PaperlessClientConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBA7A7E56D52337577303D2 /* PaperlessClientConfig.swift */; };
+		FDBCE65B94A016B599028107 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EA92254EB4B6E940DCCB8D /* KeychainStore.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		78B306BB02C2965B1BB0C1BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35C4AD8073597A4EAF5A40CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3DAE15504C2F899E6559773;
+			remoteInfo = "PaperlessClipperExtension-macOS";
+		};
+		EAF05CC5B3C1AD28E7473A60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35C4AD8073597A4EAF5A40CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 057CA32DB1CA8A6AF3A02696;
+			remoteInfo = "PaperlessClipperExtension-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		40B1DD24729C5A1F8C0493A0 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				927D97856191C69C9807F289 /* PaperlessClipperExtension-macOS.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF2625B7F8B565FE1B9FFD7B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1FE21F20E092590C9CD53DF3 /* PaperlessClipperExtension-iOS.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		07A4A1534349B8A6C60410F0 /* PaperlessClipperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperlessClipperApp.swift; sourceTree = "<group>"; };
+		0FD668293BD5C01585225CAC /* URLSchemeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSchemeHandler.swift; sourceTree = "<group>"; };
+		297C51350E4F453D06D02C1D /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
+		2A46C61E026949DF2D3FB709 /* settings.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = settings.html; sourceTree = "<group>"; };
+		3010A3DE95BE717968AACE66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		32A9A89F622E1CB2BE9C8521 /* PDFRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFRenderer.swift; sourceTree = "<group>"; };
+		382FFF5D0CF06417C11D5BC4 /* settings.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = settings.js; sourceTree = "<group>"; };
+		48403931733D2C5ECFD477A2 /* PaperlessClipperExtension-macOS.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "PaperlessClipperExtension-macOS.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CCA0A5EA90318ADD5C8C792 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
+		51E2BA15F9493E4FF58D16D7 /* modulepreload-polyfill.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "modulepreload-polyfill.js"; sourceTree = "<group>"; };
+		5283F637A210316C4889B008 /* background.js.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = background.js.map; sourceTree = "<group>"; };
+		638DDAF51E3FE12A73D78C03 /* PaperlessClipper-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PaperlessClipper-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		66B43E1E086C13978AAAF684 /* PaperlessClipperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperlessClipperApp.swift; sourceTree = "<group>"; };
+		6DBA7A7E56D52337577303D2 /* PaperlessClientConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperlessClientConfig.swift; sourceTree = "<group>"; };
+		6FC518684ED1C295D321E0BA /* modulepreload-polyfill.js.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = "modulepreload-polyfill.js.map"; sourceTree = "<group>"; };
+		703845DF187BDDB9260DD874 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		73A7B44E0B862A0BCAA32BF5 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
+		7B0F903E0EE6200EFEA0A198 /* PaperlessClipper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PaperlessClipper.entitlements; sourceTree = "<group>"; };
+		7D6CA0BC1F8047C3D807F82E /* JobRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobRecord.swift; sourceTree = "<group>"; };
+		90ECAB155BFD062EB3AB722A /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		910D80545B0BD5E1FE7CFBCA /* settings.js.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = settings.js.map; sourceTree = "<group>"; };
+		A0A82603E6A766AFEA3057BF /* PaperlessClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperlessClient.swift; sourceTree = "<group>"; };
+		A5EA92254EB4B6E940DCCB8D /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
+		A821B8DE3D6580B645D3FCC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BB05A75893DE19D541BB2B00 /* PaperlessClipper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PaperlessClipper.entitlements; sourceTree = "<group>"; };
+		C01B1CE4B01DA862D8381E3D /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
+		C76625DB738B092C8468AF62 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
+		CE5320D81C36F19DBB2EF4B4 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
+		DDAAEE9F10F15FC11BF973FD /* content.js.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = content.js.map; sourceTree = "<group>"; };
+		E6C853078A5AC244E6C2E65B /* PaperlessClipperExtension-iOS.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = "PaperlessClipperExtension-iOS.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC97E22F03DB54BB7D129589 /* PaperlessClipper-iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "PaperlessClipper-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFEBC61D231B174F4576A866 /* popup.js.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = popup.js.map; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0B034DF50E3DE66472276E14 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CE5320D81C36F19DBB2EF4B4 /* background.js */,
+				5283F637A210316C4889B008 /* background.js.map */,
+				C76625DB738B092C8468AF62 /* content.js */,
+				DDAAEE9F10F15FC11BF973FD /* content.js.map */,
+				4CCA0A5EA90318ADD5C8C792 /* manifest.json */,
+				51E2BA15F9493E4FF58D16D7 /* modulepreload-polyfill.js */,
+				6FC518684ED1C295D321E0BA /* modulepreload-polyfill.js.map */,
+				73A7B44E0B862A0BCAA32BF5 /* popup.html */,
+				297C51350E4F453D06D02C1D /* popup.js */,
+				FFEBC61D231B174F4576A866 /* popup.js.map */,
+				2A46C61E026949DF2D3FB709 /* settings.html */,
+				382FFF5D0CF06417C11D5BC4 /* settings.js */,
+				910D80545B0BD5E1FE7CFBCA /* settings.js.map */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0DCE0F190DCEF6D48A5688DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC97E22F03DB54BB7D129589 /* PaperlessClipper-iOS.app */,
+				638DDAF51E3FE12A73D78C03 /* PaperlessClipper-macOS.app */,
+				E6C853078A5AC244E6C2E65B /* PaperlessClipperExtension-iOS.appex */,
+				48403931733D2C5ECFD477A2 /* PaperlessClipperExtension-macOS.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3F171797EA582427D5960DBC /* shared-swift */ = {
+			isa = PBXGroup;
+			children = (
+				C01B1CE4B01DA862D8381E3D /* AppGroup.swift */,
+				7D6CA0BC1F8047C3D807F82E /* JobRecord.swift */,
+				A5EA92254EB4B6E940DCCB8D /* KeychainStore.swift */,
+				90ECAB155BFD062EB3AB722A /* Models.swift */,
+				6DBA7A7E56D52337577303D2 /* PaperlessClientConfig.swift */,
+			);
+			path = "shared-swift";
+			sourceTree = "<group>";
+		};
+		481DAD138AB1885D31791E86 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				A821B8DE3D6580B645D3FCC4 /* Info.plist */,
+				A0A82603E6A766AFEA3057BF /* PaperlessClient.swift */,
+				BB05A75893DE19D541BB2B00 /* PaperlessClipper.entitlements */,
+				66B43E1E086C13978AAAF684 /* PaperlessClipperApp.swift */,
+				32A9A89F622E1CB2BE9C8521 /* PDFRenderer.swift */,
+				0FD668293BD5C01585225CAC /* URLSchemeHandler.swift */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		4A8E67BA64782D267BDD93D3 /* apps */ = {
+			isa = PBXGroup;
+			children = (
+				6DA1DF62EB5BCC68B33989F2 /* iOS */,
+				481DAD138AB1885D31791E86 /* macOS */,
+			);
+			path = apps;
+			sourceTree = "<group>";
+		};
+		6DA1DF62EB5BCC68B33989F2 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3010A3DE95BE717968AACE66 /* Info.plist */,
+				7B0F903E0EE6200EFEA0A198 /* PaperlessClipper.entitlements */,
+				07A4A1534349B8A6C60410F0 /* PaperlessClipperApp.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		A44D91DACC88811A239FFF53 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				0B034DF50E3DE66472276E14 /* Resources */,
+				703845DF187BDDB9260DD874 /* SafariWebExtensionHandler.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		EBD62C3113E8C7CDD26938FC = {
+			isa = PBXGroup;
+			children = (
+				4A8E67BA64782D267BDD93D3 /* apps */,
+				A44D91DACC88811A239FFF53 /* extension */,
+				3F171797EA582427D5960DBC /* shared-swift */,
+				0DCE0F190DCEF6D48A5688DA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		057CA32DB1CA8A6AF3A02696 /* PaperlessClipperExtension-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6AAC39990A16E05C368698C0 /* Build configuration list for PBXNativeTarget "PaperlessClipperExtension-iOS" */;
+			buildPhases = (
+				14F162BEA4DDE9E552355138 /* Build Web Extension JS */,
+				17F6D90B7A498118AA646E3E /* Sources */,
+				B2042DCDE788BC3B8E3D58A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PaperlessClipperExtension-iOS";
+			packageProductDependencies = (
+			);
+			productName = "PaperlessClipperExtension-iOS";
+			productReference = E6C853078A5AC244E6C2E65B /* PaperlessClipperExtension-iOS.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		3FC98F6FDB7358E4B97E2B70 /* PaperlessClipper-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71105F834BE9DE75F138D331 /* Build configuration list for PBXNativeTarget "PaperlessClipper-macOS" */;
+			buildPhases = (
+				3A0CAF8D72509B75396437CD /* Sources */,
+				40B1DD24729C5A1F8C0493A0 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49C534BEF3A52C6711B7956A /* PBXTargetDependency */,
+			);
+			name = "PaperlessClipper-macOS";
+			packageProductDependencies = (
+			);
+			productName = "PaperlessClipper-macOS";
+			productReference = 638DDAF51E3FE12A73D78C03 /* PaperlessClipper-macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C3446C19C48477CE9BA52032 /* PaperlessClipper-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B4D59F17FA384B4599DEFA69 /* Build configuration list for PBXNativeTarget "PaperlessClipper-iOS" */;
+			buildPhases = (
+				6A985FD76E2B7DDE3765BD72 /* Sources */,
+				BF2625B7F8B565FE1B9FFD7B /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				526DB81624DF6BE8F7D2559B /* PBXTargetDependency */,
+			);
+			name = "PaperlessClipper-iOS";
+			packageProductDependencies = (
+			);
+			productName = "PaperlessClipper-iOS";
+			productReference = EC97E22F03DB54BB7D129589 /* PaperlessClipper-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C3DAE15504C2F899E6559773 /* PaperlessClipperExtension-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9EF0079073BFC65D20B6F21 /* Build configuration list for PBXNativeTarget "PaperlessClipperExtension-macOS" */;
+			buildPhases = (
+				DDC49791EFF0A125E87B6B88 /* Build Web Extension JS */,
+				040314CCC89792447D561420 /* Sources */,
+				8AD6745841250CD3070764CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PaperlessClipperExtension-macOS";
+			packageProductDependencies = (
+			);
+			productName = "PaperlessClipperExtension-macOS";
+			productReference = 48403931733D2C5ECFD477A2 /* PaperlessClipperExtension-macOS.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		35C4AD8073597A4EAF5A40CF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					057CA32DB1CA8A6AF3A02696 = {
+						DevelopmentTeam = 266QZGP4BG;
+						ProvisioningStyle = Automatic;
+					};
+					3FC98F6FDB7358E4B97E2B70 = {
+						DevelopmentTeam = 266QZGP4BG;
+						ProvisioningStyle = Automatic;
+					};
+					C3446C19C48477CE9BA52032 = {
+						DevelopmentTeam = 266QZGP4BG;
+						ProvisioningStyle = Automatic;
+					};
+					C3DAE15504C2F899E6559773 = {
+						DevelopmentTeam = 266QZGP4BG;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 3A6E789712AAFC63327597F2 /* Build configuration list for PBXProject "PaperlessClipper" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = EBD62C3113E8C7CDD26938FC;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 0DCE0F190DCEF6D48A5688DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C3446C19C48477CE9BA52032 /* PaperlessClipper-iOS */,
+				3FC98F6FDB7358E4B97E2B70 /* PaperlessClipper-macOS */,
+				057CA32DB1CA8A6AF3A02696 /* PaperlessClipperExtension-iOS */,
+				C3DAE15504C2F899E6559773 /* PaperlessClipperExtension-macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8AD6745841250CD3070764CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AAB108A33CADC3F446332CE /* background.js in Resources */,
+				74CC9E3E0D866348B6DECE18 /* background.js.map in Resources */,
+				2674F661EE645A19D1A537AD /* content.js in Resources */,
+				326D4B6EF3FD3B5C1B5DEDCE /* content.js.map in Resources */,
+				4599D9FC31A5105D42239D37 /* manifest.json in Resources */,
+				C519EB92FCA140F58F671D7C /* modulepreload-polyfill.js in Resources */,
+				A5238D172A276405E4F010D4 /* modulepreload-polyfill.js.map in Resources */,
+				3F5CA55450B5EC1E5CDE196A /* popup.html in Resources */,
+				C162E77E4F12F5984E8BF96B /* popup.js in Resources */,
+				65C836835A28E4D9FCCFB5C7 /* popup.js.map in Resources */,
+				55D5A30E3913F2E3D87875B3 /* settings.html in Resources */,
+				3ACBCF0C4B57EDE9CABB3197 /* settings.js in Resources */,
+				E00DC5FC85A996DC48FDF1A4 /* settings.js.map in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2042DCDE788BC3B8E3D58A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C31B731F19DEEFDA34DFD75 /* background.js in Resources */,
+				11DB63C3B294B774DA4ECAD8 /* background.js.map in Resources */,
+				795F8B5F309BE5F68539E016 /* content.js in Resources */,
+				AFD24FB1B5FACE9DAEDF2CB2 /* content.js.map in Resources */,
+				7530AC001C49BC2F66BB81AF /* manifest.json in Resources */,
+				BC46066746554AB399448F7A /* modulepreload-polyfill.js in Resources */,
+				4BD21389A77A2B0EAE0F316A /* modulepreload-polyfill.js.map in Resources */,
+				B544ADF7CB7CEB304E233B60 /* popup.html in Resources */,
+				EEC50B00ABD1D00DD77E512E /* popup.js in Resources */,
+				29A03CFF1EC51536C37CCBF7 /* popup.js.map in Resources */,
+				C79BB1CAE6C39CBBC7057EE9 /* settings.html in Resources */,
+				11DBFEDDC95D2F0259AD1700 /* settings.js in Resources */,
+				0B53A104812480DA2AE2A527 /* settings.js.map in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		14F162BEA4DDE9E552355138 /* Build Web Extension JS */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/web/src/manifest.json",
+				"${SRCROOT}/web/package.json",
+				"${SRCROOT}/web/tsconfig.json",
+				"${SRCROOT}/web/vite.config.ts",
+			);
+			name = "Build Web Extension JS";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${SRCROOT}/extension/Resources/manifest.json",
+				"${SRCROOT}/extension/Resources/background.js",
+				"${SRCROOT}/extension/Resources/content.js",
+				"${SRCROOT}/extension/Resources/popup.js",
+				"${SRCROOT}/extension/Resources/settings.js",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${SRCROOT}/scripts/build-web.sh";
+		};
+		DDC49791EFF0A125E87B6B88 /* Build Web Extension JS */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/web/src/manifest.json",
+				"${SRCROOT}/web/package.json",
+				"${SRCROOT}/web/tsconfig.json",
+				"${SRCROOT}/web/vite.config.ts",
+			);
+			name = "Build Web Extension JS";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${SRCROOT}/extension/Resources/manifest.json",
+				"${SRCROOT}/extension/Resources/background.js",
+				"${SRCROOT}/extension/Resources/content.js",
+				"${SRCROOT}/extension/Resources/popup.js",
+				"${SRCROOT}/extension/Resources/settings.js",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${SRCROOT}/scripts/build-web.sh";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		040314CCC89792447D561420 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4876A0D0712ADC565934664D /* AppGroup.swift in Sources */,
+				48B8BF91978C6E632D694754 /* JobRecord.swift in Sources */,
+				2725314F8F9B0300E3C47F4A /* KeychainStore.swift in Sources */,
+				23AFBEC4790E2382AB989AC4 /* Models.swift in Sources */,
+				D7EB042313F8CBA17F4C98BE /* PDFRenderer.swift in Sources */,
+				E6B7D4174C9F64A5497F56F9 /* PaperlessClient.swift in Sources */,
+				5D0DC4E1E839391405812A5F /* PaperlessClientConfig.swift in Sources */,
+				EB30CC0A573433F446084B62 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17F6D90B7A498118AA646E3E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A49F113C9C7076D69928A1B /* AppGroup.swift in Sources */,
+				51C48A28DE5AF84B4EFD8CC7 /* JobRecord.swift in Sources */,
+				E4D36848DCB586FEB2D614C7 /* KeychainStore.swift in Sources */,
+				741DE0E9AB6A84B8DD3E836E /* Models.swift in Sources */,
+				F63691D6FBD5B88E51D28BD3 /* PaperlessClientConfig.swift in Sources */,
+				4F521D0E1BFFDC9954C68120 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A0CAF8D72509B75396437CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D4A7883190B93C64B3CCA6E /* AppGroup.swift in Sources */,
+				A923A66F09193FBDD6DF0007 /* JobRecord.swift in Sources */,
+				0C270FB86A08FCA4A7A48C21 /* KeychainStore.swift in Sources */,
+				54C57A628C83F39D92CCBF4B /* Models.swift in Sources */,
+				4CED5F0BEF361CC51FA23AA8 /* PDFRenderer.swift in Sources */,
+				5C90E69983B17BAF7B2A4F5C /* PaperlessClient.swift in Sources */,
+				806FA12A52F5121BCCBB14C6 /* PaperlessClientConfig.swift in Sources */,
+				DB206D77C83D2F90CF0DE103 /* PaperlessClipperApp.swift in Sources */,
+				4E5F12FD74D1598603ED7651 /* URLSchemeHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A985FD76E2B7DDE3765BD72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA608006583F554ABE073C60 /* AppGroup.swift in Sources */,
+				07A227A7A655AFD8936ADC1C /* JobRecord.swift in Sources */,
+				FDBCE65B94A016B599028107 /* KeychainStore.swift in Sources */,
+				2C54939BFEB15DAA73BFAC3E /* Models.swift in Sources */,
+				768DAB273D5D92109EE7DCFF /* PaperlessClientConfig.swift in Sources */,
+				9A4881E9329C4CF594B39E5C /* PaperlessClipperApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		49C534BEF3A52C6711B7956A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3DAE15504C2F899E6559773 /* PaperlessClipperExtension-macOS */;
+			targetProxy = 78B306BB02C2965B1BB0C1BF /* PBXContainerItemProxy */;
+		};
+		526DB81624DF6BE8F7D2559B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 057CA32DB1CA8A6AF3A02696 /* PaperlessClipperExtension-iOS */;
+			targetProxy = EAF05CC5B3C1AD28E7473A60 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		03D45027F96C4CA94EDE7FE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = extension/PaperlessClipperExtension.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = YES;
+				INFOPLIST_FILE = extension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.czei.PaperlessClipper.Extension;
+				PRODUCT_NAME = PaperlessClipperExtension;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		0B75686884DA895FC433CEC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = apps/iOS/PaperlessClipper.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = apps/iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.czei.PaperlessClipper.iOS;
+				PRODUCT_NAME = PaperlessClipper;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		24AABDF4F20B4E72388AD92B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = apps/macOS/PaperlessClipper.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = YES;
+				INFOPLIST_FILE = apps/macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.czei.PaperlessClipper;
+				PRODUCT_NAME = PaperlessClipper;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6A8081C6356C700CF9382974 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = apps/iOS/PaperlessClipper.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = apps/iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.czei.PaperlessClipper.iOS;
+				PRODUCT_NAME = PaperlessClipper;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6F3EAE5344F3BCC4C01E7F58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 266QZGP4BG;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.czei.PaperlessClipper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
+				SWIFT_VERSION = 5.9;
+				VALIDATE_WORKSPACE = NO;
+			};
+			name = Debug;
+		};
+		7A9000AD530022C963498636 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = extension/PaperlessClipperExtension.entitlements;
+				INFOPLIST_FILE = extension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.czei.PaperlessClipper.iOS.Extension;
+				PRODUCT_NAME = PaperlessClipperExtension;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B492EEA9724D78BFFA7F37F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = extension/PaperlessClipperExtension.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = YES;
+				INFOPLIST_FILE = extension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.czei.PaperlessClipper.Extension;
+				PRODUCT_NAME = PaperlessClipperExtension;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BFAED74291D2BDEB7EE04BBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 266QZGP4BG;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.czei.PaperlessClipper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
+				SWIFT_VERSION = 5.9;
+				VALIDATE_WORKSPACE = NO;
+			};
+			name = Release;
+		};
+		D8D2DE38C13D369A24942851 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = apps/macOS/PaperlessClipper.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = YES;
+				INFOPLIST_FILE = apps/macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.czei.PaperlessClipper;
+				PRODUCT_NAME = PaperlessClipper;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E59731D3478A1F033957AA85 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = extension/PaperlessClipperExtension.entitlements;
+				INFOPLIST_FILE = extension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.czei.PaperlessClipper.iOS.Extension;
+				PRODUCT_NAME = PaperlessClipperExtension;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3A6E789712AAFC63327597F2 /* Build configuration list for PBXProject "PaperlessClipper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F3EAE5344F3BCC4C01E7F58 /* Debug */,
+				BFAED74291D2BDEB7EE04BBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6AAC39990A16E05C368698C0 /* Build configuration list for PBXNativeTarget "PaperlessClipperExtension-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A9000AD530022C963498636 /* Debug */,
+				E59731D3478A1F033957AA85 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		71105F834BE9DE75F138D331 /* Build configuration list for PBXNativeTarget "PaperlessClipper-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24AABDF4F20B4E72388AD92B /* Debug */,
+				D8D2DE38C13D369A24942851 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B4D59F17FA384B4599DEFA69 /* Build configuration list for PBXNativeTarget "PaperlessClipper-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A8081C6356C700CF9382974 /* Debug */,
+				0B75686884DA895FC433CEC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E9EF0079073BFC65D20B6F21 /* Build configuration list for PBXNativeTarget "PaperlessClipperExtension-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B492EEA9724D78BFFA7F37F7 /* Debug */,
+				03D45027F96C4CA94EDE7FE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 35C4AD8073597A4EAF5A40CF /* Project object */;
+}

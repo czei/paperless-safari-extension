@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paperless Clipper</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+      margin: 0;
+      padding: 16px;
+      width: 340px;
+      color: -apple-system-label;
+    }
+    h1 { font-size: 14px; font-weight: 600; margin: 0 0 8px; }
+    p  { font-size: 12px; margin: 4px 0; color: -apple-system-secondary-label; }
+    label { display: block; font-size: 11px; margin-top: 12px; color: -apple-system-secondary-label; }
+    input[type="url"], input[type="password"] {
+      width: 100%;
+      box-sizing: border-box;
+      font: inherit;
+      padding: 6px 8px;
+      margin-top: 4px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button { padding: 6px 12px; font: inherit; }
+    .row { display: flex; gap: 6px; align-items: center; margin-top: 8px; }
+    #status { font-size: 11px; min-height: 14px; margin-top: 8px; }
+    .ok { color: #1a8c3e; }
+    .err { color: #c0392b; }
+    hr { border: none; border-top: 1px solid #eee; margin: 14px 0; }
+  </style>
+</head>
+<body>
+  <h1>Paperless Clipper</h1>
+
+  <label for="server-url">Paperless server URL (HTTPS)</label>
+  <input id="server-url" type="url" placeholder="https://paperless.example.com" />
+
+  <label for="api-token">API token</label>
+  <input id="api-token" type="password" placeholder="Paste token; stored in Keychain" autocomplete="off" />
+
+  <div class="row">
+    <button id="save-config">Save settings</button>
+  </div>
+  <hr>
+  <div class="row">
+    <button id="trigger-save">Save current tab to Paperless</button>
+  </div>
+  <p id="status" aria-live="polite"></p>
+
+  <script type="module" src="./src/popup/popup.ts"></script>
+</body>
+</html>

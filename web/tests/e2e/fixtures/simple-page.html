@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Fixture: Simple Page</title>
+  <style>
+    :root { --accent: tomato; }
+    body {
+      font-family: -apple-system, sans-serif;
+      max-width: 720px;
+      margin: 40px auto;
+      padding: 0 16px;
+      color: #222;
+    }
+    h1 { color: var(--accent); }
+    h1::after {
+      content: " ★";
+      font-size: 0.6em;
+      color: gold;
+    }
+    .stripe {
+      height: 4px;
+      background: linear-gradient(to right, #f87171, #fbbf24, #34d399, #60a5fa);
+      margin: 8px 0 24px;
+    }
+    article p { line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <h1>Fixture: Simple Page</h1>
+  <div class="stripe"></div>
+  <article>
+    <p>This fixture exercises a few features that pure-DOM serialization tends to drop:
+       a CSS custom property (<code>--accent</code>), a pseudo-element (<code>h1::after</code>),
+       a CSS gradient on a stripe element, and basic article body text.</p>
+    <p>If the captured snapshot is faithful, replaying it in a fresh browser
+       should still show the tomato heading, the gold star after it, the
+       gradient stripe, and this readable paragraph.</p>
+  </article>
+</body>
+</html>

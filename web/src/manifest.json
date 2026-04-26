@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Paperless Clipper",
+  "version": "0.1.0",
+  "description": "One-tap save the current webpage to your Paperless-ngx server.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "nativeMessaging",
+    "scripting"
+  ],
+  "host_permissions": [],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Save to Paperless",
+    "default_popup": "popup.html"
+  },
+  "options_ui": {
+    "page": "settings.html",
+    "open_in_tab": true
+  },
+  "commands": {
+    "save-page": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+P",
+        "mac": "Command+Shift+P"
+      },
+      "description": "Save the current page to Paperless"
+    }
+  },
+  "browser_specific_settings": {
+    "safari": {
+      "strict_min_version": "16.0"
+    }
+  }
+}
