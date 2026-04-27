@@ -37,6 +37,14 @@ The DMG is signed by Web Performance Incorporated and notarized by Apple, so no 
 
 The whole pipeline runs on your device. The PDF and your API token never leave your network except to reach the Paperless server you configured.
 
+## Why there's no tag picker or title field
+
+By design — and it's the feature, not a missing one. Modern Paperless-ngx ships with an AI/classifier pipeline that reads each ingested document and assigns a sensible title, tags, correspondent, and document type on its own. Watching it correctly categorize a stack of random PDFs and website clips, then write a useful title for each, is genuinely delightful — and it saves an enormous amount of the manual organizing work that usually surrounds a personal archive.
+
+So the extension does the smallest thing it can: capture the page, send it to your server, and get out of the way. No metadata prompt, no tag picker, no title override. Whatever your Paperless instance is configured to do post-ingestion is what happens.
+
+If you want different titles or tags than your server is choosing, fix it at the server (train the classifier, edit auto-matched tags, adjust workflows). The extension intentionally does not duplicate that surface.
+
 ## Privacy
 
 No telemetry, no third-party services, no phoning home. See [PRIVACY.md](./PRIVACY.md).
