@@ -23,8 +23,9 @@ You share the page; classification (tags, correspondent, document type, refined 
 2. Open the DMG and drag **Paperless Clipper** to **Applications**.
 3. Launch the app once (Spotlight: "Paperless Clipper") so macOS registers the bundled extension.
 4. Open **Safari → Settings → Extensions** and enable **Paperless Clipper**.
-5. Click the leaf icon in the Safari toolbar → **gear** → enter your Paperless server URL and API token.
-6. Click the leaf again on any page and tap **Save current page**.
+5. Get your Paperless API token: log in to your Paperless server in a browser, click the **account dropdown** in the top-right, choose **My Profile**, and copy the **API Auth Token**.
+6. Click the leaf icon in the Safari toolbar → **gear** → enter your Paperless server URL and paste the token.
+7. Click the leaf again on any page and tap **Save current page**.
 
 The DMG is signed by Web Performance Incorporated and notarized by Apple, so no Gatekeeper warnings.
 
