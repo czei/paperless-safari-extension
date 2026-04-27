@@ -5,50 +5,243 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Paperless Clipper</title>
   <style>
+    :root {
+      --leaf: #17541f;
+      --leaf-hover: #1f7029;
+      --bg: #ffffff;
+      --surface: #f6f6f4;
+      --border: #e5e5e2;
+      --text: #1c1c1c;
+      --text-muted: #6b6b6b;
+      --ok: #1a8c3e;
+      --err: #c0392b;
+      --warn: #b07900;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1c1c1e;
+        --surface: #2c2c2e;
+        --border: #3a3a3c;
+        --text: #f2f2f7;
+        --text-muted: #98989f;
+        --leaf: #5fb86b;
+        --leaf-hover: #74cf80;
+      }
+    }
+
+    * { box-sizing: border-box; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+      font-size: 13px;
+      line-height: 1.4;
       margin: 0;
-      padding: 16px;
-      width: 340px;
-      color: -apple-system-label;
+      width: 320px;
+      color: var(--text);
+      background: var(--bg);
     }
-    h1 { font-size: 14px; font-weight: 600; margin: 0 0 8px; }
-    p  { font-size: 12px; margin: 4px 0; color: -apple-system-secondary-label; }
-    label { display: block; font-size: 11px; margin-top: 12px; color: -apple-system-secondary-label; }
-    input[type="url"], input[type="password"] {
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand { display: flex; align-items: center; gap: 8px; min-width: 0; }
+    .brand .leaf { width: 18px; height: 18px; flex: none; }
+    .brand-text { display: flex; flex-direction: column; min-width: 0; }
+    .brand-name { font-weight: 600; font-size: 13px; }
+    .brand-host {
+      font-size: 11px;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 220px;
+    }
+    .icon-btn {
+      width: 28px; height: 28px;
+      display: inline-flex; align-items: center; justify-content: center;
+      border: none; background: transparent; border-radius: 6px;
+      color: var(--text-muted); cursor: pointer;
+      padding: 0;
+    }
+    .icon-btn:hover { background: var(--surface); color: var(--text); }
+    .icon-btn svg { width: 16px; height: 16px; }
+
+    /* Views */
+    main { padding: 14px 16px 16px; }
+    .view { display: none; }
+    .view.active { display: block; }
+
+    /* Primary save button */
+    .primary {
+      display: block;
       width: 100%;
-      box-sizing: border-box;
+      padding: 11px 14px;
       font: inherit;
-      padding: 6px 8px;
-      margin-top: 4px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      font-weight: 600;
+      font-size: 13px;
+      color: white;
+      background: var(--leaf);
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: background 0.12s ease;
     }
-    button { padding: 6px 12px; font: inherit; }
-    .row { display: flex; gap: 6px; align-items: center; margin-top: 8px; }
-    #status { font-size: 11px; min-height: 14px; margin-top: 8px; }
-    .ok { color: #1a8c3e; }
-    .err { color: #c0392b; }
-    hr { border: none; border-top: 1px solid #eee; margin: 14px 0; }
+    .primary:hover:not(:disabled) { background: var(--leaf-hover); }
+    .primary:active:not(:disabled) { transform: translateY(0.5px); }
+    .primary:disabled { opacity: 0.5; cursor: default; }
+
+    /* Status row */
+    #status {
+      margin: 10px 0 0;
+      min-height: 16px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    #status::before {
+      content: "";
+      width: 6px; height: 6px; border-radius: 50%;
+      flex: none;
+      margin-top: 5px;
+      background: transparent;
+    }
+    #status.ok { color: var(--ok); }
+    #status.ok::before { background: var(--ok); }
+    #status.err { color: var(--err); }
+    #status.err::before { background: var(--err); }
+    #status.warn { color: var(--warn); }
+    #status.warn::before { background: var(--warn); }
+    #status.busy::before {
+      background: var(--text-muted);
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+    /* Empty / not-configured hint */
+    .hint {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 0 0 10px;
+    }
+
+    /* Settings form */
+    .field { margin-bottom: 12px; }
+    .field label {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .field input {
+      width: 100%;
+      font: inherit;
+      font-size: 12px;
+      padding: 8px 10px;
+      color: var(--text);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      outline: none;
+      transition: border-color 0.12s ease;
+    }
+    .field input:focus { border-color: var(--leaf); }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .btn-secondary {
+      flex: 1;
+      padding: 8px 12px;
+      font: inherit;
+      font-size: 12px;
+      color: var(--text);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .btn-secondary:hover { border-color: var(--text-muted); }
+    .btn-secondary.primary-like {
+      background: var(--leaf);
+      color: white;
+      border-color: var(--leaf);
+      font-weight: 600;
+    }
+    .btn-secondary.primary-like:hover { background: var(--leaf-hover); border-color: var(--leaf-hover); }
+
+    /* Settings header (back button) */
+    .settings-head {
+      display: flex; align-items: center; gap: 6px;
+      margin: -2px 0 12px;
+    }
+    .settings-head .title { font-weight: 600; font-size: 13px; }
   </style>
 </head>
 <body>
-  <h1>Paperless Clipper</h1>
+  <header>
+    <div class="brand">
+      <svg class="leaf" viewBox="0 0 100 100" aria-hidden="true">
+        <path fill="currentColor" d="M 25.6 88.7 C 25.2 86.7 24.3 82.7 24.2 82.7 C 5.4 71.5 7.6 52 13.8 40.8 C 15.1 54.9 39.9 64.6 25.4 81.7 C 25.3 81.9 26.1 84.6 26.7 87.0 C 29.6 82.1 33.9 76.2 33.4 75.7 C 16.1 32.0 71.7 28.7 83.2 1.8 C 88.4 27.8 80.5 68.0 33.7 78.2 C 33.5 78.3 25.6 92.2 25.4 92.3 C 25.4 92.1 22.1 92.2 22.5 91.1 C 22.7 90.5 23.1 89.6 23.6 88.7 Z M 36.6 69.4 C 29.6 52.9 50.1 34.7 60.4 30.1 C 39.6 48.7 36.0 62.7 36.6 69.4 Z M 25 78.2 C 30.7 71.7 24.0 60.5 20.0 56.8 C 26.8 68.5 26.3 75.3 25 78.2 Z" style="color: var(--leaf)" />
+      </svg>
+      <div class="brand-text">
+        <div class="brand-name">Paperless Clipper</div>
+        <div class="brand-host" id="brand-host">Not configured</div>
+      </div>
+    </div>
+    <button class="icon-btn" id="open-settings" title="Settings" aria-label="Settings">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+      </svg>
+    </button>
+  </header>
 
-  <label for="server-url">Paperless server URL (HTTPS)</label>
-  <input id="server-url" type="url" placeholder="https://paperless.example.com" />
+  <main>
+    <!-- Save view (default) -->
+    <section class="view active" id="view-save">
+      <p class="hint" id="save-hint" hidden>Configure a Paperless server first.</p>
+      <button class="primary" id="trigger-save">Save current page</button>
+      <p id="status" aria-live="polite"></p>
+    </section>
 
-  <label for="api-token">API token</label>
-  <input id="api-token" type="password" placeholder="Paste token; stored in Keychain" autocomplete="off" />
+    <!-- Settings view -->
+    <section class="view" id="view-settings">
+      <div class="settings-head">
+        <button class="icon-btn" id="close-settings" title="Back" aria-label="Back">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+        <div class="title">Settings</div>
+      </div>
 
-  <div class="row">
-    <button id="save-config">Save settings</button>
-  </div>
-  <hr>
-  <div class="row">
-    <button id="trigger-save">Save current tab to Paperless</button>
-  </div>
-  <p id="status" aria-live="polite"></p>
+      <div class="field">
+        <label for="server-url">Server URL</label>
+        <input id="server-url" type="url" placeholder="https://paperless.example.com" autocomplete="off" />
+      </div>
+
+      <div class="field">
+        <label for="api-token">API token</label>
+        <input id="api-token" type="password" placeholder="Paste token; stored in Keychain" autocomplete="off" />
+      </div>
+
+      <div class="actions">
+        <button class="btn-secondary primary-like" id="save-config">Save</button>
+      </div>
+      <p id="settings-status" aria-live="polite" style="margin-top: 10px; font-size: 12px; color: var(--text-muted); min-height: 14px;"></p>
+    </section>
+  </main>
 
   <script type="module" src="./src/popup/popup.ts"></script>
 </body>

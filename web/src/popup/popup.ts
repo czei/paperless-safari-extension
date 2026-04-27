@@ -1,54 +1,87 @@
-// Popup UI for the T019 prototype.
+// Popup UI.
 //
-// Two affordances:
-//   * Configure server URL + API token (token is stored in the platform
-//     Keychain via a setToken native message; never persists in
-//     browser.storage.local)
-//   * Trigger a save of the active tab
+// Two views, toggled by the gear / back-arrow icons:
+//   * Save (default): one big "Save current page" button + status
+//   * Settings: server URL + API token form
 //
-// The settings UI in Phase 5 (US2) will move configuration into the
-// containing app and reduce this popup to a status surface.
+// On open, if no server URL is configured, the settings view is shown
+// first so the user lands on the only thing they can do. Once a URL
+// exists, the save view is the default surface.
+//
+// Token is stored in the platform Keychain via a setToken native message;
+// it never persists in browser.storage.local.
 import { ensureLiveRegions, announceStatus, announceAlert } from "../shared/a11y";
 
 declare const browser: typeof chrome;
 
-
 document.addEventListener("DOMContentLoaded", () => {
   ensureLiveRegions();
+
+  const viewSave = document.getElementById("view-save") as HTMLElement;
+  const viewSettings = document.getElementById("view-settings") as HTMLElement;
+  const openSettingsBtn = document.getElementById("open-settings") as HTMLButtonElement;
+  const closeSettingsBtn = document.getElementById("close-settings") as HTMLButtonElement;
+
+  const brandHost = document.getElementById("brand-host") as HTMLElement;
+  const saveHint = document.getElementById("save-hint") as HTMLElement;
+  const triggerSaveBtn = document.getElementById("trigger-save") as HTMLButtonElement;
+  const statusEl = document.getElementById("status") as HTMLParagraphElement;
 
   const urlInput = document.getElementById("server-url") as HTMLInputElement;
   const tokenInput = document.getElementById("api-token") as HTMLInputElement;
   const saveConfigBtn = document.getElementById("save-config") as HTMLButtonElement;
-  const triggerSaveBtn = document.getElementById("trigger-save") as HTMLButtonElement;
-  const statusEl = document.getElementById("status") as HTMLParagraphElement;
+  const settingsStatusEl = document.getElementById("settings-status") as HTMLParagraphElement;
 
-  // Load any previously-saved URL.
+  function showView(name: "save" | "settings") {
+    viewSave.classList.toggle("active", name === "save");
+    viewSettings.classList.toggle("active", name === "settings");
+  }
+
+  openSettingsBtn.addEventListener("click", () => showView("settings"));
+  closeSettingsBtn.addEventListener("click", () => showView("save"));
+
+  // Boot: load configured state, decide which view to show.
   void browser.storage.local.get(["serverURL", "tokenHost"]).then((stored) => {
     const existing = (stored as Record<string, unknown>).serverURL;
-    if (typeof existing === "string") {
+    const tokenHost = (stored as Record<string, unknown>).tokenHost;
+
+    if (typeof existing === "string" && existing) {
       urlInput.value = existing;
+      try {
+        brandHost.textContent = new URL(existing).host;
+      } catch {
+        brandHost.textContent = existing;
+      }
+      triggerSaveBtn.disabled = false;
+      saveHint.hidden = true;
+    } else {
+      brandHost.textContent = "Not configured";
+      triggerSaveBtn.disabled = true;
+      saveHint.hidden = false;
+      // First-run: jump straight to settings.
+      showView("settings");
     }
-    // Token is in Keychain; never readable from JS. Just hint at presence.
-    if ((stored as Record<string, unknown>).tokenHost) {
-      tokenInput.placeholder = "Token already saved. Paste a new one to replace.";
+
+    if (tokenHost) {
+      tokenInput.placeholder = "Token saved. Paste a new one to replace.";
     }
   });
 
   saveConfigBtn.addEventListener("click", async () => {
     const raw = urlInput.value.trim();
     if (!raw) {
-      setStatus("Enter a server URL.", "err");
+      setSettingsStatus("Enter a server URL.", "err");
       return;
     }
     let url: URL;
     try {
       url = new URL(raw);
     } catch {
-      setStatus("Not a valid URL.", "err");
+      setSettingsStatus("Not a valid URL.", "err");
       return;
     }
     if (url.protocol !== "https:") {
-      setStatus("HTTPS only.", "err");
+      setSettingsStatus("HTTPS only.", "err");
       return;
     }
     const normalized = url.origin + url.pathname.replace(/\/+$/, "");
@@ -57,12 +90,12 @@ document.addEventListener("DOMContentLoaded", () => {
       sourceUrlFieldId: null,
     });
     urlInput.value = normalized;
+    brandHost.textContent = url.host;
 
-    // Note: we don't call permissions.request for the Paperless origin —
-    // the extension never fetches from it. The containing app does, and
-    // it's not subject to web-extension host permissions.
-
-    const token = tokenInput.value.trim();
+    // Strip ALL whitespace inside the token, not just ends. Django REST
+    // Framework's TokenAuthentication rejects "Token <hex>" if <hex> has
+    // any spaces (even one accidentally pasted in the middle).
+    const token = tokenInput.value.replace(/\s+/g, "");
     if (token) {
       try {
         const res = await browser.runtime.sendMessage({
@@ -70,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
           payload: { op: "setToken", host: url.host, token },
         });
         if (!res?.ok) {
-          setStatus(`Saved URL but token write failed: ${res?.message ?? "unknown"}`, "err");
+          setSettingsStatus(`Saved URL but token write failed: ${res?.message ?? "unknown"}`, "err");
           return;
         }
         await browser.storage.local.set({ tokenHost: url.host });
@@ -78,16 +111,20 @@ document.addEventListener("DOMContentLoaded", () => {
         tokenInput.placeholder = "Token saved. Paste a new one to replace.";
       } catch (e) {
         const msg = e instanceof Error ? e.message : String(e);
-        setStatus(`Saved URL but token write failed: ${msg}`, "err");
+        setSettingsStatus(`Saved URL but token write failed: ${msg}`, "err");
         return;
       }
     }
-    setStatus(`Saved settings for ${url.host}`, "ok");
+    setSettingsStatus(`Saved.`, "ok");
+    triggerSaveBtn.disabled = false;
+    saveHint.hidden = true;
+    // After a brief beat, return to the save view so the user can act.
+    setTimeout(() => showView("save"), 700);
   });
 
   triggerSaveBtn.addEventListener("click", async () => {
     triggerSaveBtn.disabled = true;
-    setStatus("Saving…", "");
+    setStatus("Saving…", "busy");
     try {
       const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
       if (tab?.id == null) {
@@ -104,48 +141,48 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       if (!response?.ok) {
         const msg = response?.message ?? "Save failed.";
-        setStatus(`${response?.errorKind ?? "error"}: ${msg}`, "err");
+        setStatus(msg, "err");
         announceAlert(msg);
         return;
       }
       if (response.state === "alreadyInFlight") {
-        setStatus("Save already in flight.", "");
+        setStatus("Save already in flight.", "warn");
         return;
       }
-      // Background returns one synchronous-looking result: the native
-      // handler internally waited for terminal state, so no JS polling.
       const terminal = response.terminal as
         | { state: "succeeded" | "failed" | "timeout"; serverTaskId?: string; errorKind?: string; message?: string }
         | undefined;
       if (terminal?.state === "succeeded") {
-        const taskId = terminal.serverTaskId ?? "(unknown)";
-        setStatus(`Saved to Paperless. Task ${taskId}.`, "ok");
+        setStatus("Saved to Paperless.", "ok");
         announceStatus("Saved to Paperless.");
       } else if (terminal?.state === "failed") {
-        const detail = terminal.message ? `: ${terminal.message}` : "";
-        setStatus(`Failed (${terminal.errorKind ?? "unknown"})${detail}`, "err");
-        announceAlert(`Save failed: ${terminal.message ?? terminal.errorKind ?? "unknown"}`);
+        const detail = terminal.message ?? terminal.errorKind ?? "unknown error";
+        setStatus(detail, "err");
+        announceAlert(`Save failed: ${detail}`);
       } else if (terminal?.state === "timeout") {
-        setStatus("Timed out waiting for Paperless. Check the server directly.", "err");
+        setStatus("Timed out. Check the server.", "err");
       } else {
-        setStatus("Save started (no terminal info).", "");
+        setStatus("Save started.", "");
       }
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
-      setStatus(`Error: ${msg}`, "err");
+      setStatus(msg, "err");
       announceAlert(msg);
     } finally {
       triggerSaveBtn.disabled = false;
     }
   });
 
-  // Polling removed: the background's triggerSave now embeds terminal state
-  // directly in its response. The native handler waits internally for the
-  // job to finish before returning, so the JS layer makes ONE
-  // sendNativeMessage instead of 60 polling calls (per pal-debate consensus).
-
-  function setStatus(text: string, level: "ok" | "err" | "") {
+  function setStatus(text: string, level: "ok" | "err" | "warn" | "busy" | "") {
     statusEl.textContent = text;
     statusEl.className = level;
+  }
+
+  function setSettingsStatus(text: string, level: "ok" | "err" | "") {
+    settingsStatusEl.textContent = text;
+    settingsStatusEl.style.color =
+      level === "ok" ? "var(--ok)" :
+      level === "err" ? "var(--err)" :
+      "var(--text-muted)";
   }
 });
