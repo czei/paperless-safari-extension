@@ -20,6 +20,9 @@ settings:
     SWIFT_TREAT_WARNINGS_AS_ERRORS: NO
     GCC_TREAT_WARNINGS_AS_ERRORS: NO
     VALIDATE_WORKSPACE: NO
+    # Required for Apple notarization (Developer ID distribution).
+    # Silently ignored on iOS targets.
+    ENABLE_HARDENED_RUNTIME: YES
 
 targets:
   # --------------------------------------------------------------------------
