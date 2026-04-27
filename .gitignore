@@ -32,6 +32,7 @@ extension/Resources/manifest.json
 extension/Resources/*.js.map
 extension/Resources/*.css
 extension/Resources/*.css.map
+extension/Resources/icon-*.png
 
 # Playwright test artifacts
 web/test-results/
