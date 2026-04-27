@@ -24,7 +24,7 @@ public final class PDFRenderer: NSObject, WKNavigationDelegate {
         // width (816px) collapses Reddit / GitHub / etc. to mobile layouts
         // with broken proportions. 1280px is a typical desktop breakpoint
         // that keeps responsive layouts intact during replay.
-        let frame = NSRect(x: 0, y: 0, width: 1280, height: 1024)
+        let frame = CGRect(x: 0, y: 0, width: 1280, height: 1024)
         let config = WKWebViewConfiguration()
         let prefs = WKWebpagePreferences()
         prefs.allowsContentJavaScript = false // snapshot is static; no JS needed
@@ -72,7 +72,7 @@ public final class PDFRenderer: NSObject, WKNavigationDelegate {
         // createPDF reads the geometry.
         let renderWidth = max(CGFloat(docWidth), self.webView.frame.width)
         let renderHeight = max(CGFloat(docHeight), self.webView.frame.height)
-        self.webView.frame = NSRect(x: 0, y: 0, width: renderWidth, height: renderHeight)
+        self.webView.frame = CGRect(x: 0, y: 0, width: renderWidth, height: renderHeight)
         try? await Task.sleep(nanoseconds: 200_000_000)
 
         return try await withCheckedThrowingContinuation { continuation in

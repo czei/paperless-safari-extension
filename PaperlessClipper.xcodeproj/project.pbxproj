@@ -38,6 +38,7 @@
 		5D0DC4E1E839391405812A5F /* PaperlessClientConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBA7A7E56D52337577303D2 /* PaperlessClientConfig.swift */; };
 		65C836835A28E4D9FCCFB5C7 /* popup.js.map in Resources */ = {isa = PBXBuildFile; fileRef = FFEBC61D231B174F4576A866 /* popup.js.map */; };
 		6D4A7883190B93C64B3CCA6E /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B1CE4B01DA862D8381E3D /* AppGroup.swift */; };
+		741952181331B560469E010A /* PDFRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A9A89F622E1CB2BE9C8521 /* PDFRenderer.swift */; };
 		741DE0E9AB6A84B8DD3E836E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ECAB155BFD062EB3AB722A /* Models.swift */; };
 		74CC9E3E0D866348B6DECE18 /* background.js.map in Resources */ = {isa = PBXBuildFile; fileRef = 5283F637A210316C4889B008 /* background.js.map */; };
 		7530AC001C49BC2F66BB81AF /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CCA0A5EA90318ADD5C8C792 /* manifest.json */; };
@@ -55,6 +56,7 @@
 		C162E77E4F12F5984E8BF96B /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 297C51350E4F453D06D02C1D /* popup.js */; };
 		C519EB92FCA140F58F671D7C /* modulepreload-polyfill.js in Resources */ = {isa = PBXBuildFile; fileRef = 51E2BA15F9493E4FF58D16D7 /* modulepreload-polyfill.js */; };
 		C79BB1CAE6C39CBBC7057EE9 /* settings.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A46C61E026949DF2D3FB709 /* settings.html */; };
+		C8876BAF9C1CEBE020A51FCE /* PaperlessClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A82603E6A766AFEA3057BF /* PaperlessClient.swift */; };
 		D7EB042313F8CBA17F4C98BE /* PDFRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A9A89F622E1CB2BE9C8521 /* PDFRenderer.swift */; };
 		DB206D77C83D2F90CF0DE103 /* PaperlessClipperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B43E1E086C13978AAAF684 /* PaperlessClipperApp.swift */; };
 		E00DC5FC85A996DC48FDF1A4 /* settings.js.map in Resources */ = {isa = PBXBuildFile; fileRef = 910D80545B0BD5E1FE7CFBCA /* settings.js.map */; };
@@ -492,6 +494,8 @@
 				51C48A28DE5AF84B4EFD8CC7 /* JobRecord.swift in Sources */,
 				E4D36848DCB586FEB2D614C7 /* KeychainStore.swift in Sources */,
 				741DE0E9AB6A84B8DD3E836E /* Models.swift in Sources */,
+				741952181331B560469E010A /* PDFRenderer.swift in Sources */,
+				C8876BAF9C1CEBE020A51FCE /* PaperlessClient.swift in Sources */,
 				F63691D6FBD5B88E51D28BD3 /* PaperlessClientConfig.swift in Sources */,
 				4F521D0E1BFFDC9954C68120 /* SafariWebExtensionHandler.swift in Sources */,
 			);

@@ -145,6 +145,11 @@ targets:
     sources:
       - path: extension/SafariWebExtensionHandler.swift
       - path: shared-swift
+      # Same in-extension render+upload architecture as macOS, pulled in via
+      # target membership rather than copied. Files are platform-conditional
+      # where needed (NSRect → CGRect). See research R1 iOS section.
+      - path: apps/macOS/PDFRenderer.swift
+      - path: apps/macOS/PaperlessClient.swift
       - path: extension/Resources
         buildPhase: resources
     info:
