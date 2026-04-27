@@ -1,0 +1,8 @@
+# GitHub Pages config — minimal Jekyll setup.
+title: Paperless Clipper
+description: Safari Web Extension that one-tap-saves webpages to your Paperless-ngx server
+theme: jekyll-theme-minimal
+
+# Don't run Jekyll on these
+exclude:
+  - "_config.yml"
