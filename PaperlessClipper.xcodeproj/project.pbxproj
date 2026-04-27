@@ -10,8 +10,10 @@
 		07A227A7A655AFD8936ADC1C /* JobRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CA0BC1F8047C3D807F82E /* JobRecord.swift */; };
 		0B53A104812480DA2AE2A527 /* settings.js.map in Resources */ = {isa = PBXBuildFile; fileRef = 910D80545B0BD5E1FE7CFBCA /* settings.js.map */; };
 		0C270FB86A08FCA4A7A48C21 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EA92254EB4B6E940DCCB8D /* KeychainStore.swift */; };
+		0E57CE9B96A7D3D161A7CCA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC04EB8FC1C633DD3A4E474D /* Assets.xcassets */; };
 		11DB63C3B294B774DA4ECAD8 /* background.js.map in Resources */ = {isa = PBXBuildFile; fileRef = 5283F637A210316C4889B008 /* background.js.map */; };
 		11DBFEDDC95D2F0259AD1700 /* settings.js in Resources */ = {isa = PBXBuildFile; fileRef = 382FFF5D0CF06417C11D5BC4 /* settings.js */; };
+		14679442D4EA95A7265D79BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8EFA65648AF78C4F7ED559A /* Assets.xcassets */; };
 		17DF426F8C262CCBB627830D /* icon-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 419038B81C1C98C26CEFFB2B /* icon-32.png */; };
 		1C31B731F19DEEFDA34DFD75 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = CE5320D81C36F19DBB2EF4B4 /* background.js */; };
 		1FE21F20E092590C9CD53DF3 /* PaperlessClipperExtension-iOS.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E6C853078A5AC244E6C2E65B /* PaperlessClipperExtension-iOS.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -162,10 +164,12 @@
 		BB05A75893DE19D541BB2B00 /* PaperlessClipper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PaperlessClipper.entitlements; sourceTree = "<group>"; };
 		C01B1CE4B01DA862D8381E3D /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		C76625DB738B092C8468AF62 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
+		CC04EB8FC1C633DD3A4E474D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE5320D81C36F19DBB2EF4B4 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
 		DDAAEE9F10F15FC11BF973FD /* content.js.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = content.js.map; sourceTree = "<group>"; };
 		E6C853078A5AC244E6C2E65B /* PaperlessClipperExtension-iOS.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = "PaperlessClipperExtension-iOS.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC97E22F03DB54BB7D129589 /* PaperlessClipper-iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "PaperlessClipper-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8EFA65648AF78C4F7ED559A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFEBC61D231B174F4576A866 /* popup.js.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = popup.js.map; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -224,6 +228,7 @@
 		481DAD138AB1885D31791E86 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
+				F8EFA65648AF78C4F7ED559A /* Assets.xcassets */,
 				A821B8DE3D6580B645D3FCC4 /* Info.plist */,
 				A0A82603E6A766AFEA3057BF /* PaperlessClient.swift */,
 				BB05A75893DE19D541BB2B00 /* PaperlessClipper.entitlements */,
@@ -246,6 +251,7 @@
 		6DA1DF62EB5BCC68B33989F2 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				CC04EB8FC1C633DD3A4E474D /* Assets.xcassets */,
 				3010A3DE95BE717968AACE66 /* Info.plist */,
 				7B0F903E0EE6200EFEA0A198 /* PaperlessClipper.entitlements */,
 				07A4A1534349B8A6C60410F0 /* PaperlessClipperApp.swift */,
@@ -299,6 +305,7 @@
 			buildConfigurationList = 71105F834BE9DE75F138D331 /* Build configuration list for PBXNativeTarget "PaperlessClipper-macOS" */;
 			buildPhases = (
 				3A0CAF8D72509B75396437CD /* Sources */,
+				C15E1469A8272E27BE802440 /* Resources */,
 				40B1DD24729C5A1F8C0493A0 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
@@ -318,6 +325,7 @@
 			buildConfigurationList = B4D59F17FA384B4599DEFA69 /* Build configuration list for PBXNativeTarget "PaperlessClipper-iOS" */;
 			buildPhases = (
 				6A985FD76E2B7DDE3765BD72 /* Sources */,
+				F432A1EF786E216CC118D27D /* Resources */,
 				BF2625B7F8B565FE1B9FFD7B /* Embed Foundation Extensions */,
 			);
 			buildRules = (
@@ -454,6 +462,22 @@
 				C79BB1CAE6C39CBBC7057EE9 /* settings.html in Resources */,
 				11DBFEDDC95D2F0259AD1700 /* settings.js in Resources */,
 				0B53A104812480DA2AE2A527 /* settings.js.map in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C15E1469A8272E27BE802440 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14679442D4EA95A7265D79BE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F432A1EF786E216CC118D27D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E57CE9B96A7D3D161A7CCA2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
