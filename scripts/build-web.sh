@@ -26,3 +26,11 @@ rsync -a --delete "${REPO_ROOT}/web/dist/" "${REPO_ROOT}/extension/Resources/"
 # Copy the static manifest.json from src/ alongside the bundled JS, since
 # vite doesn't emit it as an entry.
 cp "${REPO_ROOT}/web/src/manifest.json" "${REPO_ROOT}/extension/Resources/manifest.json"
+
+# Copy icon PNGs (rendered from resources/logo/web/svg/square.svg in the
+# paperless-ngx repo) into the bundle. Vite doesn't process them. Placed
+# at the bundle root rather than icons/ because Xcode's Copy Bundle
+# Resources phase flattens group references, breaking subdirectory paths
+# in manifest.json.
+rm -rf "${REPO_ROOT}/extension/Resources/icons"
+cp "${REPO_ROOT}"/web/src/icons/icon-*.png "${REPO_ROOT}/extension/Resources/"
