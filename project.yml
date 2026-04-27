@@ -81,7 +81,12 @@ targets:
     settings:
       base:
         PRODUCT_NAME: PaperlessClipper
-        PRODUCT_BUNDLE_IDENTIFIER: org.czei.PaperlessClipper.iOS
+        # Lowercase to satisfy Apple Developer portal's case-coercion of
+        # extension App IDs; fresh stem ("paperlessclipper2") chosen
+        # because Apple soft-deletes identifier namespaces and the
+        # original "paperlessclipper" stem stayed cached as lowercase
+        # even after re-registration with mixed case.
+        PRODUCT_BUNDLE_IDENTIFIER: org.czei.paperlessclipper2.ios
         INFOPLIST_FILE: apps/iOS/Info.plist
         CODE_SIGN_ENTITLEMENTS: apps/iOS/PaperlessClipper.entitlements
         TARGETED_DEVICE_FAMILY: "1,2"
@@ -161,7 +166,8 @@ targets:
     settings:
       base:
         PRODUCT_NAME: PaperlessClipperExtension
-        PRODUCT_BUNDLE_IDENTIFIER: org.czei.PaperlessClipper.iOS.Extension
+        # Lowercase to match the Apple Developer portal registration.
+        PRODUCT_BUNDLE_IDENTIFIER: org.czei.paperlessclipper2.ios.extension
         INFOPLIST_FILE: extension/Info.plist
         CODE_SIGN_ENTITLEMENTS: extension/PaperlessClipperExtension.entitlements
     preBuildScripts:

@@ -625,7 +625,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.czei.PaperlessClipper.iOS;
+				PRODUCT_BUNDLE_IDENTIFIER = org.czei.paperlessclipper2.ios;
 				PRODUCT_NAME = PaperlessClipper;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -667,7 +667,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.czei.PaperlessClipper.iOS;
+				PRODUCT_BUNDLE_IDENTIFIER = org.czei.paperlessclipper2.ios;
 				PRODUCT_NAME = PaperlessClipper;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -760,7 +760,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.czei.PaperlessClipper.iOS.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = org.czei.paperlessclipper2.ios.extension;
 				PRODUCT_NAME = PaperlessClipperExtension;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -884,7 +884,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.czei.PaperlessClipper.iOS.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = org.czei.paperlessclipper2.ios.extension;
 				PRODUCT_NAME = PaperlessClipperExtension;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
