@@ -1,4 +1,5 @@
 import Foundation
+import PDFKit
 import WebKit
 
 /// Renders a self-contained HTML blob to a paginated PDF via WKWebView.
@@ -161,3 +162,41 @@ extension NSScrollView {
 #endif
 
 /// UIScrollView already has contentSize on iOS; nothing to do.
+
+extension PDFRenderer {
+
+    /// Overlay a clickable link annotation on the source-URL text inside a
+    /// PDF produced by `renderHTML`.
+    ///
+    /// `WKWebView.createPDF` rasterizes `<a href>` elements as plain text —
+    /// the anchor doesn't survive into a `PDFAnnotationLink`, so the source
+    /// URL printed at the top of every clip looks like a hyperlink but isn't
+    /// tappable in any PDF viewer. We compensate by searching for the URL
+    /// string in the PDF text stream and adding a link annotation at its
+    /// bounds. Long URLs that wrap to multiple lines get one annotation per
+    /// line via `selectionsByLine()`.
+    ///
+    /// Returns the original data unchanged if the URL can't be located or
+    /// re-serialization fails — annotation is a best-effort enhancement and
+    /// must never block the upload.
+    public static func annotateSourceURL(_ pdfData: Data, sourceURL: String) -> Data {
+        guard let doc = PDFDocument(data: pdfData),
+              let url = URL(string: sourceURL) else {
+            return pdfData
+        }
+        let matches = doc.findString(sourceURL, withOptions: [.caseInsensitive])
+        if matches.isEmpty {
+            return pdfData
+        }
+        for match in matches {
+            for line in match.selectionsByLine() {
+                guard let page = line.pages.first else { continue }
+                let bounds = line.bounds(for: page)
+                let annotation = PDFAnnotation(bounds: bounds, forType: .link, withProperties: nil)
+                annotation.url = url
+                page.addAnnotation(annotation)
+            }
+        }
+        return doc.dataRepresentation() ?? pdfData
+    }
+}

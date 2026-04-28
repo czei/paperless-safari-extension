@@ -119,7 +119,8 @@ final class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
             var outbound: [String: Any]
             do {
                 let renderer = PDFRenderer()
-                let pdf = try await renderer.renderHTML(html)
+                let rawPDF = try await renderer.renderHTML(html)
+                let pdf = PDFRenderer.annotateSourceURL(rawPDF, sourceURL: sourceURL)
                 let client = PaperlessClient()
                 let result = try await client.upload(
                     pdfData: pdf,

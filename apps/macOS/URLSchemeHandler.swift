@@ -57,7 +57,8 @@ public final class URLSchemeHandler {
 
         let pdf: Data
         do {
-            pdf = try await PDFRenderer().renderHTML(html)
+            let rawPDF = try await PDFRenderer().renderHTML(html)
+            pdf = PDFRenderer.annotateSourceURL(rawPDF, sourceURL: record.sourceURL)
             log.info("rendered PDF: \(pdf.count) bytes for job \(jobId, privacy: .public)")
         } catch {
             log.error("render failed: \(error.localizedDescription, privacy: .public)")
