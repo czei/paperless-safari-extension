@@ -17,6 +17,14 @@ declare const browser: typeof chrome;
 document.addEventListener("DOMContentLoaded", () => {
   ensureLiveRegions();
 
+  // iPhone presents the popup as a full-width bottom sheet; iPad and
+  // macOS present it as a popover sized to body. Mobile-styled rules
+  // (full-width body, native-size touch targets) are gated on this
+  // class so the popover variants keep their compact desktop layout.
+  if (/iPhone|iPod/.test(navigator.userAgent)) {
+    document.documentElement.classList.add("iphone");
+  }
+
   const viewSave = document.getElementById("view-save") as HTMLElement;
   const viewSettings = document.getElementById("view-settings") as HTMLElement;
   const openSettingsBtn = document.getElementById("open-settings") as HTMLButtonElement;
@@ -26,6 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const saveHint = document.getElementById("save-hint") as HTMLElement;
   const triggerSaveBtn = document.getElementById("trigger-save") as HTMLButtonElement;
   const statusEl = document.getElementById("status") as HTMLParagraphElement;
+  const pagePreview = document.getElementById("page-preview") as HTMLElement;
+  const pageFavicon = document.getElementById("page-favicon") as HTMLImageElement;
+  const pageTitle = document.getElementById("page-title") as HTMLElement;
+  const pageHost = document.getElementById("page-host") as HTMLElement;
 
   const urlInput = document.getElementById("server-url") as HTMLInputElement;
   const tokenInput = document.getElementById("api-token") as HTMLInputElement;
@@ -39,6 +51,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   openSettingsBtn.addEventListener("click", () => showView("settings"));
   closeSettingsBtn.addEventListener("click", () => showView("save"));
+
+  // Populate the page-preview card from the active tab. Metadata only
+  // (title / url / favIconUrl) — no content-script call, so this is free.
+  void browser.tabs.query({ active: true, currentWindow: true }).then(([tab]) => {
+    if (!tab?.url) return;
+    let host = "";
+    try {
+      host = new URL(tab.url).host;
+    } catch {
+      host = tab.url;
+    }
+    pageTitle.textContent = tab.title || host;
+    pageHost.textContent = host;
+    if (tab.favIconUrl) {
+      pageFavicon.src = tab.favIconUrl;
+      pageFavicon.onerror = () => {
+        pageFavicon.style.visibility = "hidden";
+      };
+    } else {
+      pageFavicon.style.visibility = "hidden";
+    }
+    pagePreview.hidden = false;
+  });
 
   // Boot: load configured state, decide which view to show.
   void browser.storage.local.get(["serverURL", "tokenHost"]).then((stored) => {

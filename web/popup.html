@@ -186,6 +186,74 @@
       margin: -2px 0 12px;
     }
     .settings-head .title { font-weight: 600; font-size: 13px; }
+
+    /* Page-preview card: shows what's about to be saved. */
+    .page-preview {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 12px;
+      min-width: 0;
+    }
+    .page-preview .favicon {
+      width: 20px; height: 20px;
+      flex: none;
+      border-radius: 4px;
+      object-fit: contain;
+      background: var(--bg);
+    }
+    .page-preview .meta {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      gap: 1px;
+    }
+    .page-preview .title {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .page-preview .host {
+      font-size: 11px;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .page-preview[hidden] { display: none; }
+
+    /* iPhone only: popup is presented as a full-width bottom sheet, so
+       drop the 320px body width and bump touch targets to native size.
+       Gated on a JS-applied .iphone class because iPad presents the
+       popup as a small popover sized to body — a width media query
+       would also match there and collapse the popover. */
+    :root.iphone body { width: 100%; font-size: 15px; }
+    :root.iphone header { padding: 14px 20px 12px; }
+    :root.iphone .brand-name { font-size: 15px; }
+    :root.iphone .brand-host { font-size: 13px; max-width: 60vw; }
+    :root.iphone .brand .leaf { width: 22px; height: 22px; }
+    :root.iphone .icon-btn { width: 36px; height: 36px; border-radius: 8px; }
+    :root.iphone .icon-btn svg { width: 20px; height: 20px; }
+    :root.iphone main { padding: 16px 20px max(16px, env(safe-area-inset-bottom)); }
+    :root.iphone .primary { padding: 14px 16px; font-size: 16px; border-radius: 12px; }
+    :root.iphone #status { font-size: 14px; margin-top: 12px; }
+    :root.iphone .hint { font-size: 14px; }
+    /* 16px input font prevents iOS focus-zoom. */
+    :root.iphone .field label { font-size: 12px; }
+    :root.iphone .field input { font-size: 16px; padding: 12px 14px; border-radius: 8px; }
+    :root.iphone .actions { margin-top: 18px; }
+    :root.iphone .btn-secondary { padding: 12px 14px; font-size: 15px; border-radius: 8px; }
+    :root.iphone .page-preview { padding: 14px; border-radius: 12px; gap: 12px; margin-bottom: 16px; }
+    :root.iphone .page-preview .favicon { width: 28px; height: 28px; border-radius: 6px; }
+    :root.iphone .page-preview .title { font-size: 15px; }
+    :root.iphone .page-preview .host { font-size: 13px; }
   </style>
 </head>
 <body>
@@ -211,6 +279,13 @@
     <!-- Save view (default) -->
     <section class="view active" id="view-save">
       <p class="hint" id="save-hint" hidden>Configure a Paperless server first.</p>
+      <div class="page-preview" id="page-preview" hidden>
+        <img class="favicon" id="page-favicon" alt="" />
+        <div class="meta">
+          <div class="title" id="page-title"></div>
+          <div class="host" id="page-host"></div>
+        </div>
+      </div>
       <button class="primary" id="trigger-save">Save current page</button>
       <p id="status" aria-live="polite"></p>
     </section>
