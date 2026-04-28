@@ -12,8 +12,8 @@ options:
 settings:
   base:
     SWIFT_VERSION: "5.9"
-    MARKETING_VERSION: "0.1.0"
-    CURRENT_PROJECT_VERSION: "1"
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "10"
     PRODUCT_BUNDLE_IDENTIFIER: org.czei.PaperlessClipper
     DEVELOPMENT_TEAM: "266QZGP4BG"
     CODE_SIGN_STYLE: Automatic
@@ -74,11 +74,16 @@ targets:
       path: apps/iOS/Info.plist
       properties:
         CFBundleDisplayName: Paperless Clipper
+        CFBundleIconName: AppIcon
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        ITSAppUsesNonExemptEncryption: false
         LSRequiresIPhoneOS: true
         UIBackgroundModes: [fetch]
         UILaunchScreen: {}
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
           - UIInterfaceOrientationLandscapeLeft
           - UIInterfaceOrientationLandscapeRight
         CFBundleURLTypes:
@@ -120,6 +125,9 @@ targets:
     info:
       path: extension/Info.plist
       properties:
+        CFBundleDisplayName: Paperless Clipper
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         NSExtension:
           NSExtensionPointIdentifier: com.apple.Safari.web-extension
           NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).SafariWebExtensionHandler
@@ -165,8 +173,13 @@ targets:
       - path: extension/Resources
         buildPhase: resources
     info:
-      path: extension/Info.plist
+      path: extension/Info-iOS.plist
       properties:
+        CFBundleDisplayName: Paperless Clipper
+        CFBundleName: $(PRODUCT_NAME)
+        CFBundleDevelopmentRegion: $(DEVELOPMENT_LANGUAGE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         NSExtension:
           NSExtensionPointIdentifier: com.apple.Safari.web-extension
           NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).SafariWebExtensionHandler
@@ -175,8 +188,9 @@ targets:
         PRODUCT_NAME: PaperlessClipperExtension
         # Lowercase to match the Apple Developer portal registration.
         PRODUCT_BUNDLE_IDENTIFIER: org.czei.paperlessclipper2.ios.extension
-        INFOPLIST_FILE: extension/Info.plist
+        INFOPLIST_FILE: extension/Info-iOS.plist
         CODE_SIGN_ENTITLEMENTS: extension/PaperlessClipperExtension.entitlements
+        TARGETED_DEVICE_FAMILY: "1,2"
     preBuildScripts:
       - name: Build Web Extension JS
         script: ${SRCROOT}/scripts/build-web.sh
